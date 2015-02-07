@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="SushiService" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>Sushi Service</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:org/dspace/sushi/cxf/cxf.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dspace-config</param-name>
+        <param-value>${dspace.dir}/config/dspace.cfg</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dspace.dir</param-name>
+        <param-value>${dspace.dir}</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.dspace.app.util.DSpaceContextListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>CXFServlet</servlet-name>
+        <servlet-class>
+            org.apache.cxf.transport.servlet.CXFServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CXFServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+</web-app>

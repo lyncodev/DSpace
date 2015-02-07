@@ -5,7 +5,10 @@
    <artifactId>dspace-parent</artifactId>
    <packaging>pom</packaging>
    <version>6.0-SNAPSHOT</version>
-   <name>DSpace Parent Project</name>
+    <modules>
+        <module>dspace-sushi</module>
+    </modules>
+    <name>DSpace Parent Project</name>
    <description>
    	DSpace open source software is a turnkey institutional repository application.
    </description>
